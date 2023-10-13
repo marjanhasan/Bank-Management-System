@@ -14,11 +14,20 @@ class Account(ABC):
         self.account_no = len(self.accounts) + 21
         Account.accounts.append(self)
 
+    def deposite(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(
+                f"\n-->Successfully deposited: ${amount}. New Balance: ${self.balance}"
+            )
+        else:
+            print(f"\n-->Invalid deposit amount. Please Try again!")
+
     def withdraw(self, amount):
         if amount > 0 and amount <= self.balance:
             self.balance -= amount
-            print(f"Withdraw: ${amount}. New Balance: ${self.balance}")
+            print(f"\n-->Withdraw: ${amount}. New Balance: ${self.balance}")
         elif amount > self.balance:
-            print(f"Withdrawal amount exceeded")
+            print(f"\n-->Withdrawal amount exceeded")
         else:
-            print(f"Invalid amount request. Please Try again!")
+            print(f"\n-->Invalid amount request. Please Try again!")
