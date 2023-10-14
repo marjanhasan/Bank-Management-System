@@ -71,7 +71,7 @@ class User:
         self.bank = bank
         if self.bank.bankrupt == False:
             if self.bank.loan_system == True:
-                if self.loan_times <= 2:
+                if self.loan_times < 2:
                     self.balance += amount
                     self.bank.total_balance -= amount
                     self.bank.total_loan += amount
